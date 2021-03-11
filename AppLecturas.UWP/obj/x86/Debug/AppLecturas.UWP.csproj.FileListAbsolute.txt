@@ -982,5 +982,4 @@ C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\P
 C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\Xamarin.Essentials.pri.xml
 C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160679180000000.json
 C:\Users\Robin\Documents\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160895180000000.json
