@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppLecturas.Vista.PagLecturas" BackgroundColor="#EAAB00">
+    <ContentPage.Content>
+        <StackLayout Margin="20,35,20,20">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Ver todas las lecturas"
+                Clicked="Button_ClickedAsync" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="ButSincr"  Text="Sincronizar con servidor remoto"
+                Clicked="Button_Clicked_SincronizarAsync" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="BuscarPorFecha"  Text="Buscar por mes y año"
+                Clicked="BuscarPorFecha_Clicked" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <Label Text="Seleccionar mes" TextColor="#003F72" FontAttributes="Bold"></Label>
+            <Picker x:Name="Seleccionarmes"  BackgroundColor="#E0DED8" TextColor="#003F72">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Enero</x:String>
+                        <x:String>Febrero</x:String>
+                        <x:String>Marzo</x:String>
+                        <x:String>Abril</x:String>
+                        <x:String>Mayo</x:String>
+                        <x:String>Junio</x:String>
+                        <x:String>Julio</x:String>
+                        <x:String>Agosto</x:String>
+                        <x:String>Septiembre</x:String>
+                        <x:String>Octubre</x:String>
+                        <x:String>Noviembre</x:String>
+                        <x:String>Diciembre</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Seleccionar año" TextColor="#003F72" FontAttributes="Bold"></Label>
+            <Picker x:Name="Seleccionaraño" BackgroundColor="#E0DED8" TextColor="#003F72">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>2019</x:String>
+                        <x:String>2020</x:String>
+                        <x:String>2021</x:String>
+                        <x:String>2022</x:String>
+                        <x:String>2023</x:String>
+                        <x:String>2023</x:String>
+                        <x:String>2024</x:String>
+                        <x:String>2025</x:String>
+                        <x:String>2026</x:String>
+                        <x:String>2027</x:String>
+                        <x:String>2028</x:String>
+                        <x:String>2029</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
+                <ListView.Header>
+
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text ="Id" FontSize="Small" Grid.Column="0" TextColor="#003F72"/>
+                        <Label Text ="Fecha" FontSize="Small" Grid.Column="1" TextColor="#003F72"/>
+                        <Label Text ="Nombres" FontSize="Small" Grid.Column="2" TextColor="#003F72"/>
+                        <Label Text ="Apellidos" FontSize="Small" Grid.Column="3" TextColor="#003F72"/>
+                        <Label Text ="Lectura anterior" FontSize="Small" Grid.Column="4" TextColor="#003F72"/>
+                        <Label Text ="Lectura actual" FontSize="Small" Grid.Column="5" TextColor="#003F72"/>
+                        <Label Text ="Consumo en m3" FontSize="Small" Grid.Column="6" TextColor="#003F72"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#E0DED8"
+                        Orientation="Vertical">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Fecha , StringFormat='{0:MM/dd/yyyy}'}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="1" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Anterior}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Actual}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Consumo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#003F72"></Label>
+   
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+        

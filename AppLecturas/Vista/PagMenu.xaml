@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppLecturas.Vista.PagMenu" BackgroundColor="#EAAB00">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="JUNTA ADMINISTRADORA DE AGUA POTABLE ZUMBAHUAYCO" HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Large"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Usuario: " HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Micro"/>
+                <Label x:Name="TxtUsuario" TextColor="#003f72" FontSize="Micro" FontAttributes="Bold"/>
+                <Label Text="Perfil: " HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Micro"/>
+                <Label x:Name="TxtPerfil" TextColor="#003f72" FontSize="Micro" FontAttributes="Bold"/>
+                <Label Text="Sectores: " HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Micro"/>
+                <Label x:Name="TxtSector" TextColor="#003F72" FontSize="Micro" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Conectado:" HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Micro"/>
+                <Label x:Name="TxtConectado" TextColor="#003F72" FontSize="Micro" FontAttributes="Bold"/>
+                <Label Text="Observación." HorizontalTextAlignment="Center" TextColor="#003F72" FontSize="Micro"/>
+                <Label x:Name="TxtSincronizacion" TextColor="#003F72" FontSize="Micro" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Consultar Medidores" x:Name="ButConsultaMedidores" Clicked="ButConsultaMedidores_ClickedAsync" BackgroundColor="#003F72" TextColor="#fff" FontSize="Micro" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50"/>
+            </StackLayout>
+                <ListView x:Name="listView" ItemSelected="listView_ItemSelected" BackgroundColor="#003F72">
+                <ListView.Header>
+
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text ="Id" FontSize="Small" Grid.Column="0" TextColor="#fff"/>
+                        <Label Text ="Codigo" FontSize="Small" Grid.Column="1" TextColor="#fff"/>
+                        <Label Text ="Nombres" FontSize="Small" Grid.Column="2" TextColor="#fff"/>
+                        <Label Text ="Apellidos" FontSize="Small" Grid.Column="3" TextColor="#fff"/>
+                        <Label Text ="Numero" FontSize="Small" Grid.Column="4" TextColor="#fff"/>
+                        <Label Text ="Marca" FontSize="Small" Grid.Column="5" TextColor="#fff"/>
+                        <Label Text ="Modelo" FontSize="Small" Grid.Column="6" TextColor="#fff"/>
+                        <Label Text ="Sector" FontSize="Small" Grid.Column="7" TextColor="#fff"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="#E0DED8"
+                        Orientation="Vertical">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3 *"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Codigo}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="1" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Numero}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Marca}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Modelo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#003f72"></Label>
+                                    <Label Text="{Binding Sector}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="7" TextColor="#003f72"></Label>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Consultar Lecturas" x:Name="ButConsultarLectura" Clicked="ButConsultarLectura_Clicked" BackgroundColor="#003F72" TextColor="#fff" FontSize="Micro" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Cerrar Sesión" x:Name="ButCerrarSesion" Clicked="ButCerrarSesion_Clicked" BackgroundColor="#003F72" TextColor="#fff" FontSize="Micro" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
